@@ -1,0 +1,2 @@
+include ':SharedPreferenceDelegate'
+rootProject.name = "Shared Preference Delegate"
