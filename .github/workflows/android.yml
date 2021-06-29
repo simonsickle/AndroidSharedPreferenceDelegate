@@ -19,7 +19,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Publish Artifacts
-      run: ./gradlew SharedPreferenceDelegate:publishReleasePublicationToSonatypeRepository publishToSonatype closeAndReleaseSonatypeStagingRepository
+      run: ./gradlew SharedPreferenceDelegate:publish
       env:
         OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
         OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
