@@ -8,7 +8,7 @@ implementation("com.simonsickle:sharedpreference-delegate:1.0.0")
 ```
 
 Usage
-+++++
+-----
 
 When you want to use shared preferences, you can now call it in
 a simplified manor.
@@ -33,7 +33,7 @@ fun doSomething(): String {
 ```
 
 Supported Types
-+++++++++++++++
+---------------
 - String
 - String Set (`Set<String>`)
 - Int
