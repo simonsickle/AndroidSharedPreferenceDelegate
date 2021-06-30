@@ -31,9 +31,9 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingStrings_ReadWriteWorks() {
-        var stringPreference: String? by preferences.delegate()
+        var stringPreference: String by preferences.delegate()
 
-        assertEquals(null, stringPreference)
+        assertEquals("", stringPreference)
         stringPreference = "I don't know about this rick!"
         assertEquals("I don't know about this rick!", stringPreference)
         assertEquals(
@@ -44,14 +44,14 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingStringSet_ReadWriteWorks() {
-        var stringSetPreference: Set<String>? by preferences.delegate()
+        var stringSetPreference: Set<String> by preferences.delegate()
 
-        assertEquals(null, stringSetPreference)
+        assertEquals(emptySet<String>(), stringSetPreference)
         stringSetPreference = setOf("I don't know about this rick!", "I'm Pickle Rick!")
-        assertTrue(stringSetPreference!!.contains("I don't know about this rick!"))
-        assertTrue(stringSetPreference!!.contains("I'm Pickle Rick!"))
+        assertTrue(stringSetPreference.contains("I don't know about this rick!"))
+        assertTrue(stringSetPreference.contains("I'm Pickle Rick!"))
 
-        val directAccess = preferences.getStringSet("stringSetPreference", null)
+        val directAccess = preferences.getStringSet("stringSetPreference", emptySet())
         assertTrue(directAccess!!.contains("I don't know about this rick!"))
         assertTrue(directAccess.contains("I'm Pickle Rick!"))
     }
@@ -59,9 +59,9 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingStringsWithKey_ReadWriteWorks() {
-        var stringPreference: String? by preferences.delegate(keyName = "someKey")
+        var stringPreference: String by preferences.delegate(keyName = "someKey")
 
-        assertEquals(null, stringPreference)
+        assertEquals("", stringPreference)
         stringPreference = "I don't know about this rick!"
         assertEquals("I don't know about this rick!", stringPreference)
         assertEquals(
@@ -76,7 +76,7 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingInt_ReadWriteWorks() {
-        var intPreference: Int? by preferences.delegate()
+        var intPreference: Int by preferences.delegate()
 
         assertEquals(-1, intPreference)
         intPreference = 42
@@ -89,7 +89,7 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingLong_ReadWriteWorks() {
-        var longPreference: Long? by preferences.delegate()
+        var longPreference: Long by preferences.delegate()
 
         assertEquals(-1L, longPreference)
         longPreference = 42L
@@ -102,7 +102,7 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingFloat_ReadWriteWorks() {
-        var floatPreference: Float? by preferences.delegate()
+        var floatPreference: Float by preferences.delegate()
 
         assertEquals(0F, floatPreference)
         floatPreference = 42f
@@ -115,7 +115,7 @@ class SharedPreferenceDelegateTest {
 
     @Test
     fun whenDelegatingBool_ReadWriteWorks() {
-        var boolPreference: Boolean? by preferences.delegate()
+        var boolPreference: Boolean by preferences.delegate()
 
         assertEquals(false, boolPreference)
         boolPreference = true
